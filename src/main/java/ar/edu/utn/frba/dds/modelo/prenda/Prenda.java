@@ -36,4 +36,8 @@ public class Prenda {
   public boolean esAptoTemperatura(int temperatura) {
     return temperatura <= this.temperaturaMaxima;
   }
+
+  public boolean esAptoFormalidad(Formalidad formalidad) {
+    return this.formalidad == formalidad; // no se aclara como implementar esto
+  }
 }

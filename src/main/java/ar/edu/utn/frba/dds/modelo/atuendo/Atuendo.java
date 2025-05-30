@@ -2,11 +2,13 @@ package ar.edu.utn.frba.dds.modelo.atuendo;
 
 import ar.edu.utn.frba.dds.modelo.clima.Humedad;
 import ar.edu.utn.frba.dds.modelo.prenda.Categoria;
+import ar.edu.utn.frba.dds.modelo.prenda.Formalidad;
 import ar.edu.utn.frba.dds.modelo.prenda.Prenda;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class Atuendo {
@@ -56,10 +58,18 @@ public class Atuendo {
   }
 
   public boolean esAptoTemperatura(int temperaturaActual) {
-    boolean noAccesoriosAptos = Stream.of(prendaSuperior, prendaInferior, calzado)
-        .allMatch(prenda -> prenda.esAptoTemperatura(temperaturaActual));
+    return esApto(prenda -> prenda.esAptoTemperatura(temperaturaActual));
+  }
 
-    boolean accesoriosAptos = accesorios.stream().allMatch(a -> a.esAptoTemperatura(temperaturaActual));
+  public boolean esAptoFormalidad(Formalidad formalidad) {
+    return esApto(prenda -> prenda.esAptoFormalidad(formalidad));
+  }
+
+  private boolean esApto(Predicate<Prenda> predicado) {
+    boolean noAccesoriosAptos = Stream.of(prendaSuperior, prendaInferior, calzado)
+        .allMatch(predicado);
+
+    boolean accesoriosAptos = accesorios.stream().allMatch(predicado);
     return noAccesoriosAptos && accesoriosAptos;
   }
 }
