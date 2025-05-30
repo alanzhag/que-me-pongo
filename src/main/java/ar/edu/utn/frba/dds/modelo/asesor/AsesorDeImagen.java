@@ -18,13 +18,21 @@ public class AsesorDeImagen {
   private final Config config;
   private final MotorSugerencias motorSugerencias;
 
-  public AsesorDeImagen(ServicioMetereologico servicioMetereologico, Config config, MotorSugerencias motorSugerencias) {
+  public AsesorDeImagen(
+      ServicioMetereologico servicioMetereologico,
+      Config config,
+      MotorSugerencias motorSugerencias
+  ) {
     this.servicioMetereologico = Objects.requireNonNull(servicioMetereologico);
     this.config = config;
     this.motorSugerencias = motorSugerencias;
   }
 
-  public Optional<Atuendo> sugerirAtuendo(String ciudad, int edadUsuario, Guardarropas guardarropas) {
+  public Optional<Atuendo> sugerirAtuendo(
+      String ciudad,
+      int edadUsuario,
+      Guardarropas guardarropas
+  ) {
     Objects.requireNonNull(ciudad);
     Objects.requireNonNull(guardarropas);
 
