@@ -3,12 +3,15 @@ package ar.edu.utn.frba.dds.modelo.prenda;
 import ar.edu.utn.frba.dds.modelo.Categoria;
 
 public enum TipoDePrenda {
-  REMERA(Categoria.CALZADO),
-  PANTALON(Categoria.CALZADO),
-  ZAPATOS(Categoria.CALZADO),
+  BLUSA(Categoria.PARTE_SUPERIOR),
+  CAMISA_MANGA_CORTA(Categoria.PARTE_SUPERIOR),
+  CHOMBA(Categoria.PARTE_SUPERIOR),
+  MUSCULOSA(Categoria.PARTE_SUPERIOR),
+  REMERA(Categoria.PARTE_SUPERIOR),
+  PANTALON(Categoria.PARTE_INFERIOR),
+  POLLERA(Categoria.PARTE_INFERIOR),
   ZAPATILLAS(Categoria.CALZADO),
-  CAMISA_MANGA_CORTA(Categoria.CALZADO),
-  CHOMBA(Categoria.CALZADO);
+  ZAPATOS(Categoria.CALZADO);
 
   private final Categoria categoria;
 
