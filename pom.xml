@@ -54,6 +54,7 @@
             JavadocParagraph,
             SummaryJavadoc
           </violationIgnore>
+          <excludes>**/AccuWeatherAPI.java</excludes>
         </configuration>
         <executions>
           <execution>

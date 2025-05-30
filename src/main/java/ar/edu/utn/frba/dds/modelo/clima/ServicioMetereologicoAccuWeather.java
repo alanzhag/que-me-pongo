@@ -15,7 +15,11 @@ public class ServicioMetereologicoAccuWeather implements ServicioMetereologico {
   private final Duration periodoDeValidez;
   private final Map<String, RespuestaMeteorologica> ultimasRespuestas;
 
-  public ServicioMetereologicoAccuWeather(AccuWeatherAPI api, Duration periodoDeValidez, Map<String, RespuestaMeteorologica> ultimasRespuestas) {
+  public ServicioMetereologicoAccuWeather(
+      AccuWeatherAPI api,
+      Duration periodoDeValidez,
+      Map<String, RespuestaMeteorologica> ultimasRespuestas
+  ) {
     this.api = Objects.requireNonNull(api);
     this.periodoDeValidez = Objects.requireNonNull(periodoDeValidez);
     this.ultimasRespuestas = new HashMap<>();
@@ -38,7 +42,7 @@ public class ServicioMetereologicoAccuWeather implements ServicioMetereologico {
     List<Map<String, Object>> respuestaApi = this.api.getWeather(ciudad);
 
     if (respuestaApi == null || respuestaApi.isEmpty()) {
-      throw new RuntimeException("No se puede consultar la respuesta de AccuWeather para: " + ciudad);
+      throw new RuntimeException("No hay respuesta de AccuWeather para: " + ciudad);
     }
     //mapeo de ejemplo. enunciado no aclara.
     Map<String, Object> datosClimaticos = respuestaApi.get(0);
@@ -47,7 +51,7 @@ public class ServicioMetereologicoAccuWeather implements ServicioMetereologico {
     Double precipitacionProbObj = (Double) datosClimaticos.get("PrecipitationProbability");
 
     if (temperaturaObj == null || precipitacionProbObj == null) {
-      throw new RuntimeException("Respuesta de AccuWeather incompleta: faltan Temperature o PrecipitationProbability.");
+      throw new RuntimeException("Respuesta de AccuWeather incompleta");
     }
 
     int temperatura = temperaturaObj;
