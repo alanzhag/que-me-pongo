@@ -1,7 +1,5 @@
 package ar.edu.utn.frba.dds.modelo.prenda;
 
-import ar.edu.utn.frba.dds.modelo.Categoria;
-
 public enum TipoDePrenda {
   BLUSA(Categoria.PARTE_SUPERIOR),
   CAMISA_MANGA_CORTA(Categoria.PARTE_SUPERIOR),
@@ -15,7 +13,7 @@ public enum TipoDePrenda {
 
   private final Categoria categoria;
 
-  private TipoDePrenda(Categoria categoria) {
+  TipoDePrenda(Categoria categoria) {
     this.categoria = categoria;
   }
 

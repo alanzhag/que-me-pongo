@@ -1,6 +1,6 @@
 package ar.edu.utn.frba.dds.modelo.atuendo;
 
-import ar.edu.utn.frba.dds.modelo.Categoria;
+import ar.edu.utn.frba.dds.modelo.prenda.Categoria;
 import ar.edu.utn.frba.dds.modelo.prenda.Prenda;
 import java.util.ArrayList;
 import java.util.Collections;

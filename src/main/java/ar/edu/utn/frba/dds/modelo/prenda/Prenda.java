@@ -1,6 +1,5 @@
 package ar.edu.utn.frba.dds.modelo.prenda;
 
-import ar.edu.utn.frba.dds.modelo.Categoria;
 import ar.edu.utn.frba.dds.modelo.Formalidad;
 import java.util.Objects;
 
