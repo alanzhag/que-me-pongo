@@ -29,7 +29,8 @@ public class Borrador {
 
   public Borrador conMaterial(Material material) {
     this.material = Objects.requireNonNull(material);
-    // no se como implementar esto, tal vez un mapa con las posibles asignaciones pero sería dificil de mantener
+    // no se como implementar esto
+    // tal vez un mapa con las posibles asignaciones pero sería dificil de mantener
     //if (!this.tipoDePrenda.esMaterialConsistente(material)) {
     //  throw new IllegalArgumentException("El material y el tipo de prenda no son consistentes");
     //}
@@ -47,10 +48,20 @@ public class Borrador {
   }
 
   public Prenda crearPrenda() {
-    if (this.tipoDePrenda == null || this.material == null || this.colorPrincipal == null || this.trama == null || this.formalidad == null) { // los obligatorios
+    if (this.tipoDePrenda == null
+        || this.material == null
+        || this.colorPrincipal == null
+        || this.trama == null
+        || this.formalidad == null) { // los obligatorios
       throw new IllegalStateException("Faltan atributos obligatorios pra crear la prenda.");
     }
 
-    return new Prenda(this.tipoDePrenda, this.material, this.colorPrincipal, this.colorSecundario, this.trama, this.formalidad);
+    return new Prenda(
+        this.tipoDePrenda,
+        this.material,
+        this.colorPrincipal,
+        this.colorSecundario,
+        this.trama, this.formalidad
+    );
   }
 }

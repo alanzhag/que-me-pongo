@@ -32,6 +32,8 @@ public class Guardarropas {
       case ACCESORIOS:
         accesorios.add(prenda);
         break;
+      default:
+        break;
     }
   }
 

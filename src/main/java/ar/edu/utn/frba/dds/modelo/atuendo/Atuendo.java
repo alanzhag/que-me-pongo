@@ -13,20 +13,29 @@ public class Atuendo {
   private final Prenda calzado;
   private final List<Prenda> accesorios;
 
-  public Atuendo(Prenda prendaSuperior, Prenda prendaInferior, Prenda calzado, List<Prenda> accesorios) {
-    if (prendaSuperior.getCategoria() != Categoria.PARTE_SUPERIOR)
+  public Atuendo(
+      Prenda prendaSuperior,
+      Prenda prendaInferior,
+      Prenda calzado,
+      List<Prenda> accesorios
+  ) {
+    if (prendaSuperior.getCategoria() != Categoria.PARTE_SUPERIOR) {
       throw new PrendaNoTieneCategoriaCorrecta(Categoria.PARTE_SUPERIOR, prendaSuperior);
-    if (prendaInferior.getCategoria() != Categoria.PARTE_INFERIOR)
+    }
+    if (prendaInferior.getCategoria() != Categoria.PARTE_INFERIOR) {
       throw new PrendaNoTieneCategoriaCorrecta(Categoria.PARTE_INFERIOR, prendaInferior);
-    if (calzado.getCategoria() != Categoria.CALZADO)
+    }
+    if (calzado.getCategoria() != Categoria.CALZADO) {
       throw new PrendaNoTieneCategoriaCorrecta(Categoria.CALZADO, calzado);
+    }
     if (accesorios == null || accesorios.isEmpty()) {
       this.accesorios = Collections.emptyList();
     } else {
       accesorios.forEach(accesorio -> {
         Objects.requireNonNull(accesorio);
-        if (accesorio.getCategoria() != Categoria.ACCESORIOS)
+        if (accesorio.getCategoria() != Categoria.ACCESORIOS) {
           throw new PrendaNoTieneCategoriaCorrecta(Categoria.ACCESORIOS, accesorio);
+        }
       });
       this.accesorios = new ArrayList<>(accesorios);
     }
