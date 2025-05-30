@@ -9,12 +9,14 @@ public class Prenda {
   private final Color colorSecundario;
   private final Trama trama;
   private final Formalidad formalidad;
+  private final int temperaturaMaxima;
 
   public Prenda(TipoDePrenda tipoDePrenda,
                 Material material,
                 Color colorPrincipal,
                 Color colorSecundario,
                 Trama trama,
+                int temperaturaMaxima,
                 Formalidad formalidad
   ) {
     //si bien valido en el builder, no esta de mas validar en el constructor.
@@ -23,10 +25,15 @@ public class Prenda {
     this.colorPrincipal = Objects.requireNonNull(colorPrincipal);
     this.colorSecundario = colorSecundario;
     this.trama = Objects.requireNonNull(trama);
+    this.temperaturaMaxima = temperaturaMaxima;
     this.formalidad = Objects.requireNonNull(formalidad);
   }
 
   public Categoria getCategoria() {
     return tipoDePrenda.getCategoria();
+  }
+
+  public boolean esAptoTemperatura(int temperatura) {
+    return temperatura <= this.temperaturaMaxima;
   }
 }

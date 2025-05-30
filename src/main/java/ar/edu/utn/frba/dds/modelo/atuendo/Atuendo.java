@@ -1,11 +1,13 @@
 package ar.edu.utn.frba.dds.modelo.atuendo;
 
+import ar.edu.utn.frba.dds.modelo.clima.Humedad;
 import ar.edu.utn.frba.dds.modelo.prenda.Categoria;
 import ar.edu.utn.frba.dds.modelo.prenda.Prenda;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Atuendo {
   private final Prenda prendaSuperior;
@@ -49,4 +51,15 @@ public class Atuendo {
     this(prendaSuperior, prendaInferior, calzado, Collections.emptyList());
   }
 
+  public boolean esAptoHumedad(Humedad humedad) {
+    return true; //no se aclara
+  }
+
+  public boolean esAptoTemperatura(int temperaturaActual) {
+    boolean noAccesoriosAptos = Stream.of(prendaSuperior, prendaInferior, calzado)
+        .allMatch(prenda -> prenda.esAptoTemperatura(temperaturaActual));
+
+    boolean accesoriosAptos = accesorios.stream().allMatch(a -> a.esAptoTemperatura(temperaturaActual));
+    return noAccesoriosAptos && accesoriosAptos;
+  }
 }

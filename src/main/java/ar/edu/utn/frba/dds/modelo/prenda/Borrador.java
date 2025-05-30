@@ -9,6 +9,7 @@ public class Borrador {
   private Color colorPrincipal;
   private Color colorSecundario;
   private Trama trama = Trama.LISA;
+  private Integer temperaturaMaxima;
   private Formalidad formalidad = Formalidad.NEUTRA;
 
   public Borrador conTipoDePrenda(TipoDePrenda tipoDePrenda) {
@@ -46,12 +47,19 @@ public class Borrador {
     return this;
   }
 
+  public Borrador conTemperaturaMaxima(int temperaturaMaxima) {
+    this.temperaturaMaxima = temperaturaMaxima;
+    return this;
+  }
+
   public Prenda crearPrenda() {
     if (this.tipoDePrenda == null
         || this.material == null
         || this.colorPrincipal == null
         || this.trama == null
-        || this.formalidad == null) { // los obligatorios
+        || this.formalidad == null
+        || this.temperaturaMaxima == null
+    ) { // los obligatorios
       throw new IllegalStateException("Faltan atributos obligatorios pra crear la prenda.");
     }
 
@@ -60,7 +68,9 @@ public class Borrador {
         this.material,
         this.colorPrincipal,
         this.colorSecundario,
-        this.trama, this.formalidad
+        this.trama,
+        this.temperaturaMaxima,
+        this.formalidad
     );
   }
 }
