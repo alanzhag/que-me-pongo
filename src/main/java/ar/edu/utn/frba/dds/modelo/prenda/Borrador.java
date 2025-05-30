@@ -47,21 +47,10 @@ public class Borrador {
   }
 
   public Prenda crearPrenda() {
-    if (this.tipoDePrenda == null ||
-        this.material == null ||
-        this.colorPrincipal == null ||
-        this.trama == null ||
-        this.formalidad == null) { // los obligatorios
+    if (this.tipoDePrenda == null || this.material == null || this.colorPrincipal == null || this.trama == null || this.formalidad == null) { // los obligatorios
       throw new IllegalStateException("Faltan atributos obligatorios pra crear la prenda.");
     }
 
-    return new Prenda(
-        this.tipoDePrenda,
-        this.material,
-        this.colorPrincipal,
-        this.colorSecundario,
-        this.trama,
-        this.formalidad
-    );
+    return new Prenda(this.tipoDePrenda, this.material, this.colorPrincipal, this.colorSecundario, this.trama, this.formalidad);
   }
 }
