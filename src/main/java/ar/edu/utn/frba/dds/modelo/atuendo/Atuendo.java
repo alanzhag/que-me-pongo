@@ -36,4 +36,8 @@ public class Atuendo {
     this.calzado = Objects.requireNonNull(calzado);
   }
 
+  public Atuendo(Prenda prendaSuperior, Prenda prendaInferior, Prenda calzado) {
+    this(prendaSuperior, prendaInferior, calzado, Collections.emptyList());
+  }
+
 }
